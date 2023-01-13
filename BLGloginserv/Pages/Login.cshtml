@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Blue Leaf Games - Login";
+
+}
+
+@namespace BLGloginserv.Pages 
+@functions {
+
+    public string updateHtml() 
+    {
+        string s = "";// getLoginError();
+        return s;
+    }
+}
+
+
+@{
+    string ErrorTxt = updateHtml();
+}
+<head>
+    
+</head>
+
+<body>
+            <p color = "red"></p>
+            <div id = "logincont" class ="container">
+                <form id = "login"  action = "" method = "post">
+                    <h1>Login</h1>
+                    <small></small>
+                    <div class = "field">
+                    <label for = "username" class="loginpg" style="top:45%;left:45%;position:fixed;color:white; width:10%;">Username</label>
+                    <input type="text" class="username" name="username" id="username" style="top:48%;left:45%;position:fixed;width:10%;" placeholder = "Username"><br><br>
+                    </div>
+                    <div class = "field">
+                    <label for = "password" class="loginpg"  style="top:51%;left:45%;position:fixed;color:white;width:10%;">Password</label>
+                    <input type= "password" class="password" id="password" name="password"style="top:54%;left:45%;position:fixed;width:10%;" placeholder = "Password"><br><br>
+                    </div>
+                    <input type="submit" value="Submit" class = "loginpg" style="top:57%;left:45%;position:fixed;width:10%;">
+                </form>
+            </div>
+    <script type="text/javascript">
+        onLoginLoad();
+    </script>
+</body>
+
