@@ -12,13 +12,9 @@ function onLoginLoad() {
 		const password = formLogin.getElementsByClassName("password")[0].value;
 		// stop form submission
 		event.preventDefault();
-		// validate the form
-		//let nameValid = hasValue(form.elements["name"], NAME_REQUIRED);
-		//let emailValid = validateEmail(form.elements["email"], EMAIL_REQUIRED, EMAIL_INVALID);
-		// if valid, submit the form.
 		if (userName == "hi" && password == "123") {
 			//getAJAXtest();
-			AJAXfunc(username,password);
+			AJAXfunc(userName,password);
 			
 		}
 		else {
@@ -46,27 +42,24 @@ function finalAJAX(input) {
 }
 
 function AJAXfunc(username, password) {
-	//var parameter = { "username": username, "password": password }
+	var parameter = JSON.stringify({ "username": username, "password": password })
 	$.ajax({
 		type: "POST",
-		url: '/Index?handler=LoginFunc',
-		//data: "",//JSON.stringify(parameter),
-		//contentType: 'application/json; charset=utf-8',
+		contentType: 'application/json; charset=utf-8',
+		url: '/Login?handler=LoginFunc',
+		data: parameter,
 		dataType: 'json',
-		//beforeSend: function (xhr) {
-		//	xhr.setRequestHeader("XSRF-TOKEN",
-		//		$('input:hidden[name="__RequestVerificationToken"]').val());
-		//},
 		headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
 
 		success: function (data) {
 			onsuccess(data.responseText)
 		},
 		error: function (data, success, error) {
-			alert("Error: " + error)
+			alert("Error: " + error + " - " + data + " - " + success + " - " + data.value)
         }
     })
 }
+//https://www.talkingdotnet.com/handle-ajax-requests-in-asp-net-core-razor-pages/
 function onsuccess(data) {
 	alert(data)
 }

@@ -13,7 +13,4 @@
     <SourceRoot Include="C:\Users\16sfihitch\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
-  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)ikvm\8.2.1\buildTransitive\netstandard2.0\IKVM.props" Condition="Exists('$(NuGetPackageRoot)ikvm\8.2.1\buildTransitive\netstandard2.0\IKVM.props')" />
-  </ImportGroup>
 </Project>

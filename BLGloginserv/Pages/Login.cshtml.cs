@@ -1,8 +1,10 @@
 
+//using javax.jws;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace BLGloginserv.Pages
 {
@@ -12,16 +14,24 @@ namespace BLGloginserv.Pages
         public void OnGet()
         {
         }
-        public async Task<IActionResult> OnPostSubmitAsync()
+        public async Task<IActionResult> OnPostSubmitAsync()//string username, string password)
         {
             return new JsonResult("success");
         }
-        /*
         public async Task<IActionResult> OnPostLoginFuncAsync()//string username, string password)
+        {
+            return new JsonResult("success");
+        }
+        public async Task<IActionResult> OnPostLoginFunc()//string username, string password)
         {
             return new JsonResult("Success");
         }
-        */
+        
+        public async Task<IActionResult>  LoginFunc()
+        {
+            return new JsonResult("Success");
+        }
+        
     }
 
     //public class Login : ApiController
