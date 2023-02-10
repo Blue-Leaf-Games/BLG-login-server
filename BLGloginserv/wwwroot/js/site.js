@@ -12,14 +12,9 @@ function onLoginLoad() {
 		const password = formLogin.getElementsByClassName("password")[0].value;
 		// stop form submission
 		event.preventDefault();
-		if (userName == "hi" && password == "123") {
-			//getAJAXtest();
-			AJAXfunc(userName,password);
-			
-		}
-		else {
-			alert("nope");
-        }
+
+		//getAJAXtest();
+		AJAXfunc(userName,password);
 	});
 }
 
@@ -46,13 +41,19 @@ function AJAXfunc(username, password) {
 	$.ajax({
 		type: "POST",
 		contentType: 'application/json; charset=utf-8',
-		url: '/Login?handler=LoginFunc',
+		url: '/Login?handler=LoginFunc',//Func', //
 		data: parameter,
 		dataType: 'json',
+		/*
+		beforeSend: function (xhr) {
+			xhr.setRequestHeader("XSRF-TOKEN",
+				$('input:hidden[name="__RequestVerificationToken"]').val());
+		},
+		*/
 		headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
 
 		success: function (data) {
-			onsuccess(data.responseText)
+			onsuccess(data)
 		},
 		error: function (data, success, error) {
 			alert("Error: " + error + " - " + data + " - " + success + " - " + data.value)
@@ -61,5 +62,6 @@ function AJAXfunc(username, password) {
 }
 //https://www.talkingdotnet.com/handle-ajax-requests-in-asp-net-core-razor-pages/
 function onsuccess(data) {
+	
 	alert(data)
 }

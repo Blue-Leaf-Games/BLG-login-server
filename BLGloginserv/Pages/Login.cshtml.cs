@@ -1,37 +1,40 @@
-
-//using javax.jws;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net;
 using System.Web;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace BLGloginserv.Pages
 {
     
     public class LoginModel : PageModel
     {
-        public void OnGet()
-        {
-        }
-        public async Task<IActionResult> OnPostSubmitAsync()//string username, string password)
+        public async Task<IActionResult> OnPostSubmitAsync()//HttpContext http, JsonDocument json)//string username, string password)
         {
             return new JsonResult("success");
         }
-        public async Task<IActionResult> OnPostLoginFuncAsync()//string username, string password)
+        /*
+        public async Task<IActionResult> OnPostLoginFuncAsync()//HttpContext http, JsonDocument json)//string username, string password)
         {
             return new JsonResult("success");
         }
-        public async Task<IActionResult> OnPostLoginFunc()//string username, string password)
+        */
+        public async Task<IActionResult> OnPostLoginFuncAsync(HttpContext http, JsonDocument json)
         {
-            return new JsonResult("Success");
+            string username = json.RootElement.GetProperty("username").GetString();
+            string password = json.RootElement.GetProperty("password").GetString();
+
+            // Perform authentication and authorization logic here
+            // ...
+
+            return new JsonResult(new { message = "success" });
         }
-        
-        public async Task<IActionResult>  LoginFunc()
+        public async Task<IActionResult> OnPostAsync()
         {
-            return new JsonResult("Success");
+            return new JsonResult("success");
         }
-        
+
     }
 
     //public class Login : ApiController
