@@ -41,7 +41,7 @@ function AJAXfunc(username, password) {
 	$.ajax({
 		type: "POST",
 		contentType: 'application/json; charset=utf-8',
-		url: '/Login?handler=LoginFunc',//Func', //
+		url: '/Login?handler=LoginFunc',//.aspx/LoginFunc',//Func', //
 		data: parameter,
 		dataType: 'json',
 		/*

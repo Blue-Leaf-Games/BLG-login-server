@@ -4,6 +4,8 @@ using System.Net;
 using System.Web;
 using System.Threading.Tasks;
 using System.Text.Json;
+using Microsoft.AspNetCore.Mvc.Routing;
+using javax.jws;
 
 namespace BLGloginserv.Pages
 {
@@ -20,7 +22,8 @@ namespace BLGloginserv.Pages
             return new JsonResult("success");
         }
         */
-        public async Task<IActionResult> OnPostLoginFuncAsync(HttpContext http, JsonDocument json)
+        [WebMethod]
+        public static async Task<IActionResult> OnPostLoginFuncAsync(HttpContext http, JsonDocument json)
         {
             string username = json.RootElement.GetProperty("username").GetString();
             string password = json.RootElement.GetProperty("password").GetString();
