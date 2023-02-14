@@ -17,7 +17,7 @@ function onLoginLoad() {
 		AJAXfunc(userName,password);
 	});
 }
-
+/*
 function getAJAXtest() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
@@ -35,13 +35,13 @@ function finalAJAX(input) {
 	alert(input);
 
 }
-
+*/
 function AJAXfunc(username, password) {
 	var parameter = JSON.stringify({ "username": username, "password": password })
 	$.ajax({
 		type: "POST",
 		contentType: 'application/json; charset=utf-8',
-		url: '/Login?handler=LoginFunc',//.aspx/LoginFunc',//Func', //
+		url: 'api/LoginFunc', //?handler=LoginFunc',// .aspx/LoginFunc',//
 		data: parameter,
 		dataType: 'json',
 		/*

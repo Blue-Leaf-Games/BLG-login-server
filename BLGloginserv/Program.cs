@@ -1,13 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.ClearProviders();
+    loggingBuilder.AddConsole();
+    loggingBuilder.AddDebug();
+});
+
 builder.Logging.SetMinimumLevel(LogLevel.Trace);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,7 +30,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.MapControllers();
 app.MapRazorPages();
 
 app.MapPost("/LoginFunc", (HttpContext http, JsonDocument json) =>
@@ -28,5 +38,5 @@ app.MapPost("/LoginFunc", (HttpContext http, JsonDocument json) =>
     return new StringContent("Success");
 }
 );
-
+app.UseDefaultFiles();
 app.Run();
