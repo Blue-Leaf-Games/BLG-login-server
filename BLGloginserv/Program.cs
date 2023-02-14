@@ -33,10 +33,5 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapRazorPages();
 
-app.MapPost("/LoginFunc", (HttpContext http, JsonDocument json) =>
-{
-    return new StringContent("Success");
-}
-);
 app.UseDefaultFiles();
 app.Run();

@@ -5,37 +5,21 @@
 
 function onLoginLoad() {
 	const formLogin = document.getElementById("login");
-	
 
-	formLogin.addEventListener("submit", function (event) {
-		const userName = formLogin.getElementsByClassName("username")[0].value;
-		const password = formLogin.getElementsByClassName("password")[0].value;
-		// stop form submission
+
+	formLogin.addEventListener("submit",async function (event) {
 		event.preventDefault();
-
-		//getAJAXtest();
-		AJAXfunc(userName,password);
+		const encoder = new TextEncoder();
+		const userName = formLogin.getElementsByClassName("username")[0].value;
+		const passworddata = encoder.encode(formLogin.getElementsByClassName("password")[0].value);
+		const password = await crypto.subtle.digest("SHA-256", passworddata);//.then(AJAXfunc(userName, password));
+		const passwordarr =  Array.from(new Uint8Array(password));   
+		//const password = formLogin.getElementsByClassName("password")[0].value;
+		AJAXfunc(userName, passwordarr.map((b) => b.toString(16).padStart(2, '0')).join(''));
 	});
 }
-/*
-function getAJAXtest() {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			//alert(this.responseText);
-			//return this.responseText;
-			finalAJAX(this.responseText);
-		}
-	};
-	xhttp.open("GET", "XMLtext.txt", true);
-	xhttp.send();
-	
-}
-function finalAJAX(input) {
-	alert(input);
 
-}
-*/
+
 function AJAXfunc(username, password) {
 	var parameter = JSON.stringify({ "username": username, "password": password })
 	$.ajax({
@@ -63,5 +47,5 @@ function AJAXfunc(username, password) {
 //https://www.talkingdotnet.com/handle-ajax-requests-in-asp-net-core-razor-pages/
 function onsuccess(data) {
 	
-	alert(data)
+	alert(data);
 }

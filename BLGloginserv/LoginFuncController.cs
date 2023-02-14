@@ -36,7 +36,7 @@ namespace BLGloginserv
         [HttpPost]
         public IActionResult Post([FromBody] LoginModel model)
         {
-            _logger.LogInformation("Received request to login");
+            _logger.LogInformation("Received request to login username - " + model.username + " password - " + model.password);
             return new JsonResult("Success");
         }
 
