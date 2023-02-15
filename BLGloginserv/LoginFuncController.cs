@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Configuration;
+using System.Data;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -36,7 +38,8 @@ namespace BLGloginserv
         [HttpPost("{id}")]
         public IActionResult Post([FromBody] LoginModel model, int id)
         {
-            _logger.LogInformation("Received request to login username - " + model.username + " password - " + model.password);
+            _logger.LogInformation("Received request to login username - " + model.username + " password - " + model.password + " identifier - " + id);
+
             return new JsonResult("Success");
         }
 
