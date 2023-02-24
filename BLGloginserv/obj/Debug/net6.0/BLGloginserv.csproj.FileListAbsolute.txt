@@ -388,3 +388,16 @@ C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\Microsoft.
 C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\obj\Debug\net6.0\BLGloginserv.csproj.CopyComplete
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\App.Config
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\BLGloginserv.dll.config
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\obj\Debug\net6.0\staticwebassets\msbuild.BLGloginserv.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\obj\Debug\net6.0\staticwebassets\msbuild.build.BLGloginserv.props
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BLGloginserv.props
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BLGloginserv.props
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\fitch\Desktop\BLG-login-server\BLGloginserv\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

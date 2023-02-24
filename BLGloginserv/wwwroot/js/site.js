@@ -11,15 +11,15 @@ function onLoginLoad() {
 		event.preventDefault();
 		const encoder = new TextEncoder();
 		const userName = formLogin.getElementsByClassName("username")[0].value;
-		const passwordraw = formLogin.getElementsByClassName("password")[0].value
+		const passwordraw = formLogin.getElementsByClassName("password")[0].value;
+		const signup = formLogin.getElementsByClassName("signupcheck")[0].checked;
 		if (passwordraw != "" && userName != "") {
-
 
 			const passworddata = encoder.encode(passwordraw);
 			const password = await crypto.subtle.digest("SHA-256", passworddata);//.then(AJAXfunc(userName, password));
 			const passwordarr = Array.from(new Uint8Array(password));
 			//const password = formLogin.getElementsByClassName("password")[0].value;
-			AJAXfunc(userName, passwordarr.map((b) => b.toString(16).padStart(2, '0')).join(''));
+			AJAXfunc(userName, passwordarr.map((b) => b.toString(16).padStart(2, '0')).join(''),signup);
 		}
 		else {
 			alert("please enter a valid username and password")
@@ -28,12 +28,12 @@ function onLoginLoad() {
 }
 
 
-function AJAXfunc(username, password) {
+function AJAXfunc(username, password, signup) {
 	var parameter = JSON.stringify({ "username": username, "password": password })
 	$.ajax({
 		type: "POST",
 		contentType: 'application/json; charset=utf-8',
-		url: 'api/LoginFunc/0', //?handler=LoginFunc',// .aspx/LoginFunc',//
+		url: 'api/LoginFunc/' + (signup ? "1":"0"), //?handler=LoginFunc',// .aspx/LoginFunc',//
 		data: parameter,
 		dataType: 'json',
 		/*
